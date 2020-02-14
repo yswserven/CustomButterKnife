@@ -3,7 +3,6 @@ package com.custom.butterknife.ui;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,14 +21,16 @@ public class MainActivity extends BaseActivity {
     private TextView tvText;
 
     /* 这个是通过编译是注入代码实现控件绑定 @author Ysw created 2020/2/14 */
-    @BindView(R.id.bt_onClickOne)
-    Button btOnClickOne;
+    @BindView(R.id.tv_textIOC)
+    TextView tvTextIOC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tvText.setText("控件注入");
-        Log.d("Ysw", "onCreate: " + btOnClickOne);
+        tvText.setText("运行时注入：注入成功");
+        tvTextIOC.setText("编译时注入：注入成功");
+        Log.d("Ysw", "onCreate: " + tvText);
+        Log.d("Ysw", "onCreate: " + tvTextIOC);
     }
 
     @OnClick({R.id.bt_onClickOne, R.id.bt_onClickTwo})

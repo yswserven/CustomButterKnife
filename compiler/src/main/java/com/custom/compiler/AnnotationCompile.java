@@ -52,6 +52,16 @@ public class AnnotationCompile extends AbstractProcessor {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
+        bindView(roundEnvironment);
+        return false;
+    }
+
+    /**
+     * 单独进行控件 View 的绑定
+     *
+     * @author Ysw created at 2020/2/14 20:16
+     */
+    private void bindView(RoundEnvironment roundEnvironment) {
         Set<? extends Element> elementsAnnotatedWith = roundEnvironment.getElementsAnnotatedWith(BindView.class);
         /* 对含有此注解的成员变量根据Activity进行分类 @author Ysw created 2020/2/14 */
         Map<String, List<VariableElement>> map = new HashMap<>();
@@ -101,6 +111,5 @@ public class AnnotationCompile extends AbstractProcessor {
                 }
             }
         }
-        return false;
     }
 }
