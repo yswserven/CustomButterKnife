@@ -3,6 +3,7 @@ package com.custom.butterknife.ui;
 import android.os.Bundle;
 
 import com.custom.butterknife.core.Inject;
+import com.custom.butterknife.ulit.ButterKnife;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,5 +16,6 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Inject.inject(this);
+        ButterKnife.bind(this);
     }
 }

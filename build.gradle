@@ -8,9 +8,11 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.3'
-        
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        /* 第一步添加 APT 插件 @author Ysw created 2020/2/14 */
+        /* 在 Gradle 2.2 版本之前需要添加 @author Ysw created 2020/2/14 */
+        /* 在 Gradle 2.2 后面的版本使用 annotationProcessor 代替了 apt @author Ysw created 2020/2/14 */
+        /* 在 Gradle 2.2 后面的版本不需要在项目的 Gradle 里面添加这个 @author Ysw created 2020/2/14 */
+        // classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
 
@@ -18,7 +20,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
     }
 }
 

@@ -1,0 +1,18 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    /* 注解处理器需要依赖 auto-service @author Ysw created 2020/2/14 */
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc4'
+    compileOnly 'com.google.auto.service:auto-service:1.0-rc4'
+    implementation project(path: ':annotation')
+}
+
+/* 需要加入编码格式,不然有中文会编译不通过 @author Ysw created 2020/2/14 */
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
